@@ -1,4 +1,4 @@
-﻿namespace DemoAPI2.Models
+﻿namespace DPMidTerm.Models
 {
     public class UserDTO
     {

@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace DemoAPI2.Migrations
+namespace DPMidTerm.Migrations
 {
     public partial class AddPrice : Migration
     {

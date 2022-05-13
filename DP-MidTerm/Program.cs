@@ -1,4 +1,4 @@
-global using DemoAPI2.Data;
+global using DPMidTerm.Data;
 global using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

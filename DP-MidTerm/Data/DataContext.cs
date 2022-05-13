@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DemoAPI2.Models;
-namespace DemoAPI2.Data
+using DPMidTerm.Models;
+namespace DPMidTerm.Data
 {
     public class DataContext: DbContext
     {

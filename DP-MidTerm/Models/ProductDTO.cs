@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DemoAPI2.Models
+namespace DPMidTerm.Models
 {
     public class ProductDTO
     {

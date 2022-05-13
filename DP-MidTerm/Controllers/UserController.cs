@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using DemoAPI2.Models;
+using DPMidTerm.Models;
 using System.Security.Cryptography;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 
-namespace DemoAPI2.Controllers
+namespace DPMidTerm.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
