@@ -1,20 +1,17 @@
 using DPMidTerm.Models;
+using DPMidTerm.Data;
 
 namespace DPMidTerm.Functions
 {
     public class MilkTeaTemplate : DrinkTemplate
     {
-        public override void prepareDink(int productID, ICollection<ToppingItem> toppingItems)
+        public MilkTeaTemplate(DataContext context) : base(context){}
+        public override void addMilk()
         {
-            addDrink(productID);
-            addToppings(toppingItems);
-            addMilk();
-        }
-        private void addMilk(){
-            ToppingItem toppingItem = new ToppingItem();
-            toppingItem.Id = 9; // this is the ID of the milk
-            toppingItem.Quantity = 1;
+            ToppingItem toppingItem = new ToppingItem(9, 1);// this is the ID of the milk
             order.Toppings.Add(toppingItem);
+            base._context.ToppingItems.Add(toppingItem);
+            base._context.SaveChanges();
         }
     }
 }

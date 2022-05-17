@@ -1,13 +1,11 @@
 using DPMidTerm.Models;
+using DPMidTerm.Data;
 
 namespace DPMidTerm.Functions
 {
     public class TeaTemplate : DrinkTemplate
     {
-        public override void prepareDink(int productID, ICollection<ToppingItem> toppingItems)
-        {
-            addDrink(productID);
-            addToppings(toppingItems);
-        }
+        public TeaTemplate(DataContext context) : base(context){}
+        public override void addMilk(){}
     }
 }

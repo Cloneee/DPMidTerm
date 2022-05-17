@@ -12,5 +12,7 @@ namespace DPMidTerm.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Topping> Toppings { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ToppingItem> ToppingItems { get; set; }
     }
 }
