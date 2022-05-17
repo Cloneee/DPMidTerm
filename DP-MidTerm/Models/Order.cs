@@ -6,9 +6,7 @@ namespace DPMidTerm.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; } = 0;
+        public ICollection<OrderItem> OrderItem { get; set; } = new List<OrderItem>();
         public int Price { get; set;}
-        public ICollection<ToppingItem> ToppingItem { get; set; } = new List<ToppingItem>();
 }
 }

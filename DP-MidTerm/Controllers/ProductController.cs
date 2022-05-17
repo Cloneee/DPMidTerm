@@ -33,7 +33,7 @@ namespace DPMidTerm.Controllers
             return Ok(product);
         }
         [HttpPost]
-        public async Task<ActionResult<List<Product>>> AddProduct(ProductDTO product)
+        public async Task<ActionResult<Product>> AddProduct(ProductDTO product)
         {
             var newProduct = new Product(product.Name, product.Description, product.Price);
             _context.Products.Add(newProduct);

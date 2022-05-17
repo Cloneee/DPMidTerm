@@ -7,6 +7,7 @@ namespace DPMidTerm.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ToppingController : ControllerBase
     {
         private readonly DataContext _context;
@@ -30,6 +31,18 @@ namespace DPMidTerm.Controllers
                 return NotFound("Not found");
             }
             return Ok(topping);
+        }
+        [HttpPost]
+        public async Task<ActionResult<Topping>> CreateTopping(ToppingDTO topping)
+        {
+            var newTopping = new Topping
+            {
+                Name = topping.Name,
+                Price = topping.Price
+            };
+            _context.Toppings.Add(newTopping);
+            await _context.SaveChangesAsync();
+            return Ok(newTopping);
         }
     }
 }

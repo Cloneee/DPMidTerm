@@ -4,6 +4,7 @@ using DPMidTerm.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DPMidTerm.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220513090118_AddToppingPrice")]
+    partial class AddToppingPrice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,27 +35,15 @@ namespace DPMidTerm.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("DPMidTerm.Models.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("OrderId")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderItem");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("DPMidTerm.Models.Product", b =>
@@ -108,7 +98,7 @@ namespace DPMidTerm.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("OrderItemId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -116,7 +106,7 @@ namespace DPMidTerm.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderItemId");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("ToppingItem");
                 });
@@ -150,28 +140,16 @@ namespace DPMidTerm.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DPMidTerm.Models.OrderItem", b =>
-                {
-                    b.HasOne("DPMidTerm.Models.Order", null)
-                        .WithMany("OrderItem")
-                        .HasForeignKey("OrderId");
-                });
-
             modelBuilder.Entity("DPMidTerm.Models.ToppingItem", b =>
                 {
-                    b.HasOne("DPMidTerm.Models.OrderItem", null)
-                        .WithMany("Toppings")
-                        .HasForeignKey("OrderItemId");
+                    b.HasOne("DPMidTerm.Models.Order", null)
+                        .WithMany("ToppingItem")
+                        .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("DPMidTerm.Models.Order", b =>
                 {
-                    b.Navigation("OrderItem");
-                });
-
-            modelBuilder.Entity("DPMidTerm.Models.OrderItem", b =>
-                {
-                    b.Navigation("Toppings");
+                    b.Navigation("ToppingItem");
                 });
 #pragma warning restore 612, 618
         }

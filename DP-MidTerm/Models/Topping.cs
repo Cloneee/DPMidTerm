@@ -7,5 +7,6 @@ namespace DPMidTerm.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set;}
         public string Name { get; set; } = String.Empty;
+        public int Price { get; set; } = 0;
     }
 }
