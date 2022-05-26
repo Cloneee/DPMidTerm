@@ -27,6 +27,7 @@ namespace DPMidTerm.Controllers
             return Ok(await _context.Users.ToListAsync());
         }
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteUser(int id){
             var user = await _context.Users.FindAsync(id);
             if (user == null)
