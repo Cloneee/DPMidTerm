@@ -1,0 +1,6 @@
+@startuml
+class MatchaBuilder {
+    + <<override>> addTea() : void
+}
+DrinkBuilder <|-- MatchaBuilder
+@enduml

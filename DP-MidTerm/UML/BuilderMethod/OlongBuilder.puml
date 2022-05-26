@@ -1,0 +1,6 @@
+@startuml
+class OlongBuilder {
+    + <<override>> addTea() : void
+}
+DrinkBuilder <|-- OlongBuilder
+@enduml

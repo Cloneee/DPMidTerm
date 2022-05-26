@@ -1,0 +1,15 @@
+@startuml
+class DrinkTemplate {
+    # order : OrderItem
+    # price : int
+    # <<readonly>> _context : DataContext
+    + DrinkTemplate(context:DataContext)
+    + prepareDink(productID:int, toppingItems:ICollection<ToppingItem>) : void
+    - addDrink(productID:int) : void
+    - addToppings(toppingItems:ICollection<ToppingItem>) : void
+    + <<virtual>> addMilk() : void
+    - calcPrice() : void
+    + getDrink() : OrderItem
+    + getPrice() : int
+}
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+!include .\\BuilderMethod\DrinkBuilder.puml
+!include .\\BuilderMethod\MatchaBuilder.puml
+!include .\\BuilderMethod\OlongBuilder.puml
+!include .\\BuilderMethod\PeachTeaBuilder.puml
+!include .\\TemplateMethod\DrinkTemplate.puml
+!include .\\TemplateMethod\MilkTeaTemplate.puml
+!include .\\TemplateMethod\TeaTemplate.puml
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class DrinkBuilder {
+    # _orderItem : OrderItem
+    + <<virtual>> addTea() : void
+    + addToppings(toppingItems:ICollection<ToppingItemDTO>) : void
+    + getDrink() : OrderItem
+}
+@enduml

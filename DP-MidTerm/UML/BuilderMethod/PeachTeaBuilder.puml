@@ -1,0 +1,6 @@
+@startuml
+class PeachTeaBuilder {
+    + <<override>> addTea() : void
+}
+DrinkBuilder <|-- PeachTeaBuilder
+@enduml

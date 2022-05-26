@@ -1,0 +1,7 @@
+@startuml
+class TeaTemplate {
+    + TeaTemplate(context:DataContext)
+    + <<override>> addMilk() : void
+}
+DrinkTemplate <|-- TeaTemplate
+@enduml
