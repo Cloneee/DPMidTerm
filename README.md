@@ -41,12 +41,14 @@ Project này áp dụng các design pattern sau:
 - Trong công nghệ phần mềm, một mẫu thiết kế design pattern là một giải pháp tổng thể cho các vấn đề chung trong thiết kế phần mềm, giúp thiết kế của chúng ta linh hoạt, dễ dàng thay đổi và bảo trì hơn.
 - Hơn nữa, Builder pattern được tạo ra để xây dựng một đôi tượng phức tạp bằng cách sử dụng các đối tượng đơn giản và sử dụng tiếp cận từng bước, việc xây dựng các đối tượng đôc lập với các đối tượng khác
 - Trong project này, ta sử dụng builder method để tạo ra sản phẩm là một ly nước dựa trên các thuộc tính đầu vào là một danh sách món hàng bao gồm loại nước (trà olong, trà đào, trà matcha) và danh sách topping (loại topping, số lượng), đầu ra là một hóa đơn bao gồm danh sách các món nước cùng tổng tiền.
+- Lý do áp dụng pattern này là vì trong thực tế, khách hàng có thể không yêu cầu nước có topping, vậy nên ta không nên cứng nhắc về quy trình sản xuất mà nên linh động trong quá trình. Vậy nên việc áp dụng builder ở đây là nhằm giảm thao thác và hàm cần dùng trong quá trình phát triển sản phẩm (server API). Ta có thể phát triển thêm bằng cách thêm vào hàm Director để chỉ đạo việc tạo nước, thay thế template method ở dưới đây.
 
 ### Template method templates
 
 - Template Method Pattern là một trong những Pattern thuộc nhóm hành vi (Behavior Pattern). Pattern này nói rằng “Định nghĩa một bộ khung của một thuật toán trong một chức năng, chuyển giao việc thực hiện nó cho các lớp con. Mẫu Template Method cho phép lớp con định nghĩa lại cách thực hiện của một thuật toán, mà không phải thay đổi cấu trúc thuật toán“.
 - Điều này có nghĩa là Template method giúp cho chúng ta tạo nên một bộ khung (template) cho một vấn đề đang cần giải quyết. Trong đó các đối tượng cụ thể sẽ có cùng các bước thực hiện, nhưng trong mỗi bước thực hiện đó có thể khác nhau. Điều này sẽ tạo nên một cách thức truy cập giống nhau nhưng có hành động và kết quả khác nhau.
 - Trong project này, ta sử dụng template method để tạo ra sản phẩm là một ly nước theo công thức cho trước, với đầu vào là tên món nước đó, được khởi tạo từ data có sẵn trong db.
+- Lý do áp dụng pattern này là vì trong thực tế, một số món sẽ có những combo đi kèm, như việc trà đào là phải có đào, trà sữa trần châu, sữa tươi trân châu đường đen,... nhưng các thao tác pha chế vẫn không thay đổi, ta chỉ thay thành phần cấu tạo. Vậy nên template pattern này sẽ giải quyết được vấn đề mỗi khi menu thêm món mới, ta không cần phải viết lại quá trình từ đầu mà chỉ việc thay đổi thành phần đầu vào mà thôi.
 
 ## Chi tiết thông tin ứng dụng
 
