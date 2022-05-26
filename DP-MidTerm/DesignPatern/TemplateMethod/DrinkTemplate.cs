@@ -1,9 +1,9 @@
 ﻿using DPMidTerm.Models;
 using DPMidTerm.Data;
 
-namespace DPMidTerm.Functions
+namespace DPMidTerm.DesignPattern
 {
-    public abstract class DrinkTemplate
+    public class DrinkTemplate
     {
         protected OrderItem order;
         protected int price;
@@ -37,7 +37,13 @@ namespace DPMidTerm.Functions
                 _context.SaveChanges();
             }
         }
-        public abstract void addMilk();
+        public virtual void addMilk()
+        {
+            ToppingItem toppingItem = new ToppingItem(9, 1);// this is the ID of the milk
+            order.Toppings.Add(toppingItem);
+            _context.ToppingItems.Add(toppingItem);
+            _context.SaveChanges();
+        }
         private void calcPrice()
         {
             Product? product = _context.Products.Find(order.ProductId);

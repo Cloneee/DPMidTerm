@@ -2,8 +2,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DPMidTerm.Models
 {
-    public class OrderDTO
+    public class OrderItemDTO
     {
-        public ICollection<OrderItem> OrderItem { get; set; } = new List<OrderItem>();
+        public int ProductId { get; set; }
+        public ICollection<ToppingItemDTO> Toppings { get; set; }
     }
 }
